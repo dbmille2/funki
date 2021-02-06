@@ -1,0 +1,63 @@
+/* TODO Add site wide styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: black;
+  overflow: hidden;
+}
+
+body {
+  position: fixed;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  color: black;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #272730c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay > div {
+  position: relative;
+  margin-top: 15px;
+  margin-left: 280px;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 40px;
+  color: gray;
+  transform: translate3d(-50%, -50%, 0);
+  cursor: pointer;
+}
