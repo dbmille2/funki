@@ -9,6 +9,7 @@ const randomColor = require("randomcolor");
 
 const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   const [newColor, setNewColor] = useState(color);
+  const [newColor2, setNewColor2] = useState(randomColor());
   const [model, setModel] = useState();
   const mesh = useRef();
   const mesh2 = useRef();
@@ -16,8 +17,8 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   const mesh4 = useRef();
   const mesh5 = useRef();
   const mesh6 = useRef();
-  // const mesh7 = useRef();
-  // const mesh8 = useRef();
+  const mesh7 = useRef();
+  const mesh8 = useRef();
   // const mesh9 = useRef();
   const outerRef = useRef();
   const middleRef = useRef();
@@ -85,6 +86,8 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
           lowerAvgFr / 20 + 0.4;
         mesh6.current.scale.x = mesh6.current.scale.y = mesh6.current.scale.z =
           lowerAvgFr / 20 + 0.4;
+        mesh7.current.rotation.y += 0.0025;
+        mesh8.current.rotation.y -= 0.005;
         // mesh7.current.scale.x = mesh7.current.scale.y = mesh7.current.scale.z =
         //   lowerAvgFr / 8 + 1;
         // mesh8.current.scale.x = mesh8.current.scale.y = mesh8.current.scale.z =
@@ -195,9 +198,10 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
           position={position}
           onClick={() => {
             setNewColor(randomColor());
+            setNewColor2(randomColor());
             // setNewColor2(randomColor());
           }}
-          rotation={[0, yRotate, 0]} //yRotate
+          rotation={[0, yRotate, 0]} //yRotate rotation * Math.PI
         >
           <primitive object={model.scene} />
           <mesh
@@ -216,12 +220,12 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
             rotation={[-Math.PI / 2, 0, 0]}
           >
             <torusBufferGeometry attach="geometry" args={[1.2, 0.2, 50, 100]} />
-            <meshBasicMaterial attach="material" color={newColor} />
+            <meshBasicMaterial attach="material" color={newColor2} />
           </mesh>
-          <mesh position={[0, -2, 0]} rotation={[0, rotation * Math.PI, 0]}>
+          <mesh ref={mesh7} position={[0, -2, 0]} rotation={[0, 0, 0]}>
             <cylinderBufferGeometry
               attach="geometry"
-              args={[rotation * 5, rotation * 15, 20, 6]}
+              args={[rotation * 5, rotation * 15, 20, 20]}
             />
             <meshBasicMaterial
               transparent
@@ -230,19 +234,16 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
               color={newColor}
             />
           </mesh>
-          <mesh
-            position={[0, -2, 0]}
-            rotation={[0, -1 * rotation * Math.PI, 0]}
-          >
+          <mesh ref={mesh8} position={[0, -2, 0]} rotation={[0, 0, 0]}>
             <cylinderBufferGeometry
               attach="geometry"
-              args={[rotation * 2, rotation * 6, 20, 6]}
+              args={[rotation * 2, rotation * 6, 20, 24]}
             />
             <meshBasicMaterial
               transparent
               wireframe={true}
               attach="material"
-              color={newColor}
+              color={newColor2}
             />
           </mesh>
         </group>
@@ -250,19 +251,19 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
           ref={particleRef}
           color={"lightblue"}
           count={25}
-          position={[-55, 140, -55]}
+          position={[250, 140, 250]}
         />
         <Particles
           ref={particleRef2}
           color={"hotpink"}
           count={25}
-          position={[-50, 140, -50]}
+          position={[255, 140, 255]}
         />
         <Particles
           ref={particleRef3}
           color={"yellow"}
           count={25}
-          position={[-25, 140, -45]}
+          position={[265, 140, 265]}
         />
         <Balls
           ref={{ outerRef, middleRef, innerRef }}

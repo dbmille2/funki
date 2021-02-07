@@ -10,7 +10,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: lightblue;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -27,29 +26,7 @@ body {
   overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-  color: black;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #272730c0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.overlay > div {
-  position: relative;
-  margin-top: 15px;
-  margin-left: 280px;
-  background: black;
   color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
 }
 
 .crosshair {

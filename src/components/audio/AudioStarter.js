@@ -12,7 +12,7 @@ const AudioStarter = ({ song, positions1 }) => {
         url={song}
         ref={sound}
         distance={10000}
-        position={[250, 0, 500]}
+        position={[250, 0, 0]}
       />
       {positions1.map((position) => {
         let scale = Math.floor(Math.random() * 9) + 3;
