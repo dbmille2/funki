@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import { useFrame } from "react-three-fiber";
 
 const Balls = React.forwardRef(
-  ({ count, mouse, scale, position, color }, ref) => {
+  ({ count, position }, ref) => {
     const mesh = ref.outerRef;
     const mesh2 = ref.middleRef;
     const mesh3 = ref.innerRef;

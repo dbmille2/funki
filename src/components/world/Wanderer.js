@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSphere } from "use-cannon";
 import { useThree, useFrame } from "react-three-fiber";
 
-const SPEED = 10;
+const SPEED = 20;
 const keys = {
   KeyW: "forward",
   KeyS: "backward",

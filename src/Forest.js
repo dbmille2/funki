@@ -6,6 +6,8 @@ import ForestFloor from "./components/world/ForestFloor";
 import Wanderer from "./components/world/Wanderer";
 import AudioStarter from "./components/audio/AudioStarter.js";
 import MainEffects from "./components/effects/MainEffects";
+import { useThree, useFrame } from "react-three-fiber";
+import { useRef } from "react";
 
 const positions1 = [];
 
@@ -36,6 +38,7 @@ function Forest({ song }) {
     >
       <ambientLight intensity={0.4} />
       <MainEffects />
+
       <AudioStarter song={song} positions1={positions1} />
       <Physics gravity={[0, -30, 0]}>
         <ForestFloor />

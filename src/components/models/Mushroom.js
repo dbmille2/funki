@@ -9,6 +9,7 @@ const randomColor = require("randomcolor");
 
 const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   const [newColor, setNewColor] = useState(color);
+
   const [newColor2, setNewColor2] = useState(randomColor());
   const [model, setModel] = useState();
   const mesh = useRef();
@@ -103,6 +104,142 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
       }
     }
   });
+  const [color1, setColor1] = useState("fuchsia");
+  const [color2, setColor2] = useState("fuchsia");
+  const [color3, setColor3] = useState("fuchsia");
+  const [color4, setColor4] = useState("fuchsia");
+  const [color5, setColor5] = useState("fuchsia");
+  const [color6, setColor6] = useState("fuchsia");
+  const [color7, setColor7] = useState("fuchsia");
+  const [color8, setColor8] = useState("fuchsia");
+  const [color9, setColor9] = useState("fuchsia");
+  const [color10, setColor10] = useState("fuchsia");
+  const [count, setCount] = useState(0);
+  useFrame(() => {
+    if (count < 15) {
+      setColor1("limegreen");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 30) {
+      setColor1("fuchsia");
+      setColor2("limegreen");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 45) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("limegreen");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 60) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("limegreen");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 75) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("limegreen");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 90) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("limegreen");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 105) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("limegreen");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 120) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("limegreen");
+      setColor9("fuchsia");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 135) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("limegreen");
+      setColor10("fuchsia");
+      setCount(count + 1);
+    } else if (count < 150) {
+      setColor1("fuchsia");
+      setColor2("fuchsia");
+      setColor3("fuchsia");
+      setColor4("fuchsia");
+      setColor5("fuchsia");
+      setColor6("fuchsia");
+      setColor7("fuchsia");
+      setColor8("fuchsia");
+      setColor9("fuchsia");
+      setColor10("limegreen");
+      setCount(count + 1);
+    } else {
+      setCount(0);
+    }
+  });
   useEffect(() => {
     new GLTFLoader().load("/mushroom/scene.gltf", setModel);
   }, []);
@@ -193,6 +330,46 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   } else {
     return model ? (
       <>
+        <mesh position={[250, 2, 498]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color1} />
+        </mesh>
+        <mesh position={[250, 2, 496.5]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color2} />
+        </mesh>
+        <mesh position={[250, 2, 495]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color3} />
+        </mesh>
+        <mesh position={[250, 2, 493.5]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color4} />
+        </mesh>
+        <mesh position={[250, 2, 492]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color5} />
+        </mesh>
+        <mesh position={[250, 2, 490.5]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color6} />
+        </mesh>
+        <mesh position={[250, 2, 489]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color7} />
+        </mesh>
+        <mesh position={[250, 2, 487.5]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color8} />
+        </mesh>
+        <mesh position={[250, 2, 486]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color9} />
+        </mesh>
+        <mesh position={[250, 2, 484.5]}>
+          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+          <meshBasicMaterial attach="material" color={color10} />
+        </mesh>
         <group
           scale={scale}
           position={position}

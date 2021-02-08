@@ -11,6 +11,11 @@ function App() {
       setSong(URL.createObjectURL(file));
     }
   };
+
+  const demo = () => {
+    setSong("/music/bloom.flac");
+    setStarted(true);
+  };
   return (
     <>
       {!started && (
@@ -20,6 +25,10 @@ function App() {
           </label>
           <input id={"image-input"} type="file" onChange={updateSong}></input>
           <button onClick={() => setStarted(true)}>Start</button>
+          <button onClick={() => demo()}>Demo</button>
+          <div>
+            Once started, click directly on the crosshair to center your mouse
+          </div>
         </div>
       )}
       {started && song && (
