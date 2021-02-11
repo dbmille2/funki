@@ -29,11 +29,17 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   const particleRef3 = useRef();
   const [rotation, setRotation] = useState();
   const analyser = useRef();
-  useEffect(
-    () =>
-      void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048)),
-    []
-  );
+
+  
+
+  useEffect(() => {
+    void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048));
+    sound.current.listener.setMasterVolume(0.05);
+    
+
+    // console.log(sound.current);
+  }, []);
+
   useFrame(() => {
     if (analyser.current && model) {
       const data = analyser.current.getFrequencyData();
@@ -47,6 +53,7 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
       const lowerMaxFr = lowerMax / lowers1.length;
       const lowerAvgFr = lowerAvg / lowers1.length;
       const lower2AvgFr = lower2Avg / lowers2.length;
+
       const upperAvgFr = upperAvg / uppers.length;
       if (mushroomType === 1) {
         mesh.current.scale.x = mesh.current.scale.y = mesh.current.scale.z =

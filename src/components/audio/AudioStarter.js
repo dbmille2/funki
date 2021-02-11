@@ -1,4 +1,4 @@
-import { useRef, Suspense, useState } from "react";
+import { useRef, Suspense, useState, useEffect } from "react";
 import { PositionalAudio } from "@react-three/drei";
 import Mushroom from "../models/Mushroom";
 import { useFrame } from "react-three-fiber";
@@ -7,6 +7,19 @@ const randomColor = require("randomcolor");
 const AudioStarter = ({ song, positions1 }) => {
   const sound = useRef();
 
+  const pauseMenu = (e) => {
+    console.log(sound.current.isPlaying);
+    if (e.key === " " && sound.current.isPlaying) {
+      sound.current.pause();
+      return;
+    } else if (e.key === " " && !sound.current.isPlaying) {
+      sound.current.play();
+      return;
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => pauseMenu(e));
+  });
   return (
     <Suspense fallback={null}>
       <PositionalAudio
@@ -15,7 +28,6 @@ const AudioStarter = ({ song, positions1 }) => {
         distance={10000}
         position={[250, 0, 0]}
       />
-      
       {positions1.map((position) => {
         let scale = Math.floor(Math.random() * 9) + 3;
         let scaleX = (Math.random() * 1 + 0.5) * scale;

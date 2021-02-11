@@ -42,6 +42,7 @@ function App() {
               justifyContent: "center",
               flexWrap: "wrap",
               margin: "2em",
+              width: "500px",
             }}
           >
             <Range
