@@ -7,7 +7,6 @@ function Root() {
   return (
     <>
       <App />
-      
     </>
   );
 }
