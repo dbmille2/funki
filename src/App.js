@@ -13,14 +13,11 @@ function App() {
     }
   };
   const [mushrooms, setMushrooms] = useState([40]);
-
+ 
   const demo = () => {
     setSong("/music/bloom.flac");
     setStarted(true);
   };
-  useEffect(() => {
-    console.log(mushrooms);
-  }, [mushrooms]);
 
   return (
     <>
@@ -86,8 +83,8 @@ function App() {
                   {...props}
                   style={{
                     ...props.style,
-                    height: "42px",
-                    width: "42px",
+                    height: "21px",
+                    width: "21px",
                     borderRadius: "4px",
                     backgroundColor: "#FFF",
                     display: "flex",

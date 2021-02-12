@@ -7,7 +7,8 @@ import Wanderer from "./components/world/Wanderer";
 import AudioStarter from "./components/audio/AudioStarter.js";
 import MainEffects from "./components/effects/MainEffects";
 import { useThree, useFrame } from "react-three-fiber";
-import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { useRef, useEffect, useState } from "react";
 
 const positions1 = [];
 
@@ -27,26 +28,55 @@ for (let x = 0; x < 40; x++) {
 }
 
 function Forest({ song }) {
-  return (
-    <Canvas
-      concurrent
-      camera={{ fov: 35 }} //{fov: 35} //{ position: [10, 10, 10] }
-      onCreated={({ gl }) => {
-        gl.gammaInput = true;
-        gl.setClearColor(new THREE.Color("#010105"));
-      }}
-    >
-      <ambientLight intensity={0.4} />
-      <MainEffects />
+  const pointerRef = useRef();
 
-      <AudioStarter song={song} positions1={positions1} />
-      <Physics gravity={[0, -30, 0]}>
-        <ForestFloor />
-        <Wanderer />
-      </Physics>
-      {/* <OrbitControls /> */}
-      <PointerLockControls />
-    </Canvas>
+  useEffect(() => {
+    setTimeout(() => {
+      if (pointerRef.current) {
+        console.log(pointerRef.current);
+        pointerRef.current.addEventListener("lock", function () {
+          document.getElementById("pause-menu").style.display = "none";
+        });
+
+        pointerRef.current.addEventListener("unlock", function () {
+          document.getElementById("pause-menu").style.display = "block";
+        });
+      }
+    }, 500);
+  }, []);
+
+  return (
+    <>
+      <div id="pause-menu">
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            window.location.reload(false);
+          }}
+        >
+          Go Home
+        </div>
+      </div>
+      <Canvas
+        concurrent
+        camera={{ fov: 35 }} //{fov: 35} //{ position: [10, 10, 10] }
+        onCreated={({ gl }) => {
+          gl.gammaInput = true;
+          gl.setClearColor(new THREE.Color("#010105"));
+        }}
+      >
+        <ambientLight intensity={0.4} />
+        <MainEffects />
+
+        <AudioStarter song={song} positions1={positions1} />
+        <Physics gravity={[0, -30, 0]}>
+          <ForestFloor />
+          <Wanderer />
+        </Physics>
+        {/* <OrbitControls /> */}
+        <PointerLockControls domElement={document.body} ref={pointerRef} />
+      </Canvas>
+    </>
   );
 }
 
