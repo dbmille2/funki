@@ -4,7 +4,7 @@ import Mushroom from "../models/Mushroom";
 import { useFrame } from "react-three-fiber";
 const randomColor = require("randomcolor");
 
-const AudioStarter = ({ song, positions1 }) => {
+const AudioStarter = ({ volume, song, positions1 }) => {
   const sound = useRef();
 
   const pauseMenu = (e) => {
@@ -20,9 +20,12 @@ const AudioStarter = ({ song, positions1 }) => {
   useEffect(() => {
     document.addEventListener("keydown", (e) => pauseMenu(e));
   });
+
+  if (sound.current) {
+    sound.current.listener.setMasterVolume(volume);
+  }
   return (
     <>
-      
       <Suspense fallback={null}>
         <PositionalAudio
           url={song}

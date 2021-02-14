@@ -7,7 +7,15 @@ import Particles from "../models/Particles";
 import Balls from "../models/Balls";
 const randomColor = require("randomcolor");
 
-const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
+const Mushroom = ({
+  volume,
+  sound,
+  scale,
+  color,
+  position,
+  yRotate,
+  mushroomType,
+}) => {
   const [newColor, setNewColor] = useState(color);
 
   const [newColor2, setNewColor2] = useState(randomColor());
@@ -30,15 +38,13 @@ const Mushroom = ({ sound, scale, color, position, yRotate, mushroomType }) => {
   const [rotation, setRotation] = useState();
   const analyser = useRef();
 
-  
-
   useEffect(() => {
     void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048));
-    sound.current.listener.setMasterVolume(0.05);
-    
 
     // console.log(sound.current);
   }, []);
+
+  
 
   useFrame(() => {
     if (analyser.current && model) {

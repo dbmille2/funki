@@ -14,7 +14,7 @@ const positions1 = [];
 
 const set = new Set();
 
-for (let x = 0; x < 40; x++) {
+for (let x = 0; x < 30; x++) {
   let coords = [
     Math.floor(Math.random() * 500),
     -2,
@@ -28,6 +28,7 @@ for (let x = 0; x < 40; x++) {
 }
 
 function Forest({ song }) {
+  const [volume, setVolume] = useState(0.01);
   const pointerRef = useRef();
 
   useEffect(() => {
@@ -56,6 +57,14 @@ function Forest({ song }) {
         >
           Go Home
         </div>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            setVolume(0.1);
+          }}
+        >
+          Volume Up
+        </div>
       </div>
       <Canvas
         concurrent
@@ -68,7 +77,12 @@ function Forest({ song }) {
         <ambientLight intensity={0.4} />
         <MainEffects />
 
-        <AudioStarter song={song} positions1={positions1} />
+        <AudioStarter
+          volume={volume}
+          setVolume={(volume) => setVolume(volume)}
+          song={song}
+          positions1={positions1}
+        />
         <Physics gravity={[0, -30, 0]}>
           <ForestFloor />
           <Wanderer />
