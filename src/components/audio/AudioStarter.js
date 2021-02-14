@@ -21,9 +21,12 @@ const AudioStarter = ({ volume, song, positions1 }) => {
     document.addEventListener("keydown", (e) => pauseMenu(e));
   });
 
-  if (sound.current) {
-    sound.current.listener.setMasterVolume(volume);
-  }
+  useEffect(() => {
+    if (sound.current) {
+      sound.current.listener.setMasterVolume(0.1);
+    }
+  }, [volume]);
+
   return (
     <>
       <Suspense fallback={null}>

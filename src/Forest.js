@@ -28,7 +28,7 @@ for (let x = 0; x < 30; x++) {
 }
 
 function Forest({ song }) {
-  const [volume, setVolume] = useState(0.01);
+  const [volume, setVolume] = useState(0.1);
   const pointerRef = useRef();
 
   useEffect(() => {
@@ -56,14 +56,6 @@ function Forest({ song }) {
           }}
         >
           Go Home
-        </div>
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            setVolume(0.1);
-          }}
-        >
-          Volume Up
         </div>
       </div>
       <Canvas
