@@ -42,13 +42,13 @@ const Mushroom = ({
 
   useEffect(() => {
     void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048));
-    sound.current.listener.setMasterVolume(0.2);
+    sound.current.listener.setMasterVolume(0.1);
     // console.log(sound.current);
   }, []);
 
   useFrame(() => {
     if (analyser.current && model) {
-      sound.current.listener.setMasterVolume(0.2);
+      sound.current.listener.setMasterVolume(0.1);
       const data = analyser.current.getFrequencyData();
       const lowers1 = data.slice(0, data.length / 64 - 1);
       const lowers2 = data.slice(data.length / 64 - 1, data.length / 16);
