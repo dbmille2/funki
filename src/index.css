@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 /* TODO Add site wide styles */
 * {
   box-sizing: border-box;
@@ -31,8 +32,135 @@ body {
 }
 
 .main-container {
+  font-family: "Montserrat", sans-serif;
   position: fixed;
-  top: 300px;
+  top: 30%;
+  left: 50%;
+  width: 500px;
+  height: 400px;
+  background-color: rgba(57, 57, 57, 0.5);
+  border-radius: 8px;
+  transform: translate(-50%, -30%);
+}
+
+#song-input {
+  display: none;
+}
+
+.select-a-song {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, -5%);
+}
+
+.instructions-header {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translate(-50%, -8%);
+}
+
+.controls {
+  width: 400px;
+  white-space: pre;
+  list-style: none;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  left: 50%;
+  top: 63%;
+  transform: translate(-50%, -63%);
+}
+
+.controls li {
+  margin-bottom: 15px;
+}
+
+.instructions-subheader {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  top: 18%;
+  transform: translate(-50%, -18%);
+}
+
+.song-upload {
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  left: 50%;
+  top: 17%;
+  transform: translate(-50%, -17%);
+  cursor: pointer;
+}
+
+.song-upload:hover {
+  color: white;
+}
+
+.song-info {
+  position: absolute;
+
+  max-width: 400px;
+  left: 20%;
+  top: 45%;
+  transform: translate(-20%, -45%);
+}
+
+.song-title {
+  font-size: 40px;
+  max-width: 420px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-artist {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.main-button {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  position: absolute;
+  letter-spacing: 1px;
+}
+
+.main-button:hover {
+  color: white;
+}
+
+.start-button {
+  left: 17%;
+  bottom: 4%;
+}
+
+.demo-button {
+  bottom: 4%;
+  right: 17%;
+}
+
+.instructions-container {
+  font-family: "Montserrat", sans-serif;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-top: 400px;
+  width: 500px;
+  height: 300px;
+  background-color: rgba(57, 57, 57, 0.5);
+  border-radius: 8px;
+  transform: translate(-50%, -30%);
 }
 
 .crosshair {
