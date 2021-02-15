@@ -48,6 +48,7 @@ const Mushroom = ({
 
   useFrame(() => {
     if (analyser.current && model) {
+      sound.current.listener.setMasterVolume(0.2);
       const data = analyser.current.getFrequencyData();
       const lowers1 = data.slice(0, data.length / 64 - 1);
       const lowers2 = data.slice(data.length / 64 - 1, data.length / 16);
