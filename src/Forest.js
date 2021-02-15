@@ -6,9 +6,14 @@ import ForestFloor from "./components/world/ForestFloor";
 import Wanderer from "./components/world/Wanderer";
 import AudioStarter from "./components/audio/AudioStarter.js";
 import MainEffects from "./components/effects/MainEffects";
-import { useThree, useFrame } from "react-three-fiber";
-import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+import { GiMushroomGills } from "react-icons/gi";
+import {
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+  AiOutlineInfoCircle,
+} from "react-icons/ai";
+import NavBar from "./components/NavBar";
 
 const positions1 = [];
 
@@ -16,9 +21,9 @@ const set = new Set();
 
 for (let x = 0; x < 30; x++) {
   let coords = [
-    Math.floor(Math.random() * 500),
+    Math.floor(Math.random() * 400),
     -2,
-    Math.floor(Math.random() * 500),
+    Math.floor(Math.random() * 400),
   ];
 
   if (!set.has(coords)) {
@@ -28,7 +33,7 @@ for (let x = 0; x < 30; x++) {
 }
 
 function Forest({ song }) {
-  const [volume, setVolume] = useState(0.01);
+  const [volume, setVolume] = useState(0.1);
   const pointerRef = useRef();
 
   useEffect(() => {
@@ -49,21 +54,10 @@ function Forest({ song }) {
   return (
     <>
       <div id="pause-menu">
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            window.location.reload(false);
-          }}
-        >
-          Go Home
-        </div>
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            setVolume(0.1);
-          }}
-        >
-          Volume Up
+        <NavBar />
+        <div className="resume-instruct">
+          <span>CLICK TO RESUME</span>
+          <div className="circle-crosshair"></div>
         </div>
       </div>
       <Canvas

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant&display=swap");
 /* TODO Add site wide styles */
 * {
   box-sizing: border-box;
@@ -29,6 +30,11 @@ body {
   color: white;
 }
 
+.main-container {
+  position: fixed;
+  top: 300px;
+}
+
 .crosshair {
   position: absolute;
   top: 50%;
@@ -46,4 +52,86 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
   z-index: 5;
+}
+
+.pause-navbar {
+  display: flex;
+  color: rgba(255, 255, 255, 0.8);
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 5;
+  background-color: rgba(57, 57, 57, 0.6);
+  padding: 0px 60px;
+}
+
+.home-button {
+  font-size: 65px;
+}
+
+.info-button {
+  font-size: 65px;
+  cursor: pointer;
+}
+
+.github-button {
+  font-size: 65px;
+  cursor: pointer;
+}
+
+.linkedin-button {
+  font-size: 65px;
+  cursor: pointer;
+}
+
+.pause-navbar-right svg:hover {
+  color: white;
+}
+
+.pause-navbar-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pause-navbar-left:hover {
+  color: white;
+}
+
+.pause-navbar-right {
+  width: 300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.resume-instruct {
+  margin-left: -70px;
+  font-family: "Assistant", sans-serif;
+  padding-bottom: 8px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.circle-crosshair {
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.app-name {
+  font-family: "Assistant", sans-serif;
+  font-size: 55px;
+  letter-spacing: 4px;
+  margin-left: 20px;
 }

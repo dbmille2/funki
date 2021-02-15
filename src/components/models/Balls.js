@@ -16,9 +16,9 @@ const Balls = React.forwardRef(({ count, position }, ref) => {
       const t = Math.random() * 100;
       const factor = 20 + Math.random() * 100;
       const speed = 0.01 + Math.random() / 500;
-      const xFactor = Math.random() * 500;
+      const xFactor = Math.random() * 400;
       const yFactor = Math.random() * 25;
-      const zFactor = Math.random() * 500;
+      const zFactor = Math.random() * 400;
       temp.push({
         t,
         factor,

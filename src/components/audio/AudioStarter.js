@@ -21,9 +21,12 @@ const AudioStarter = ({ volume, song, positions1 }) => {
     document.addEventListener("keydown", (e) => pauseMenu(e));
   });
 
-  if (sound.current) {
-    sound.current.listener.setMasterVolume(volume);
-  }
+  useEffect(() => {
+    if (sound.current) {
+      sound.current.listener.setMasterVolume(0.2);
+    }
+  }, [sound.current]);
+
   return (
     <>
       <Suspense fallback={null}>
@@ -31,7 +34,7 @@ const AudioStarter = ({ volume, song, positions1 }) => {
           url={song}
           ref={sound}
           distance={10000}
-          position={[250, 0, 0]}
+          position={[200, 0, 0]}
         />
         {positions1.map((position) => {
           let scale = Math.floor(Math.random() * 9) + 3;
@@ -43,7 +46,7 @@ const AudioStarter = ({ volume, song, positions1 }) => {
             <Mushroom
               sound={sound}
               scale={[scaleX, scaleY, scaleX]}
-              color={randomColor()}
+              color={randomColor({ luminosity: "light" })}
               position={position}
               yRotate={yRotate}
               mushroomType={mushroomType}

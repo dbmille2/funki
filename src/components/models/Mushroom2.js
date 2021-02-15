@@ -21,8 +21,8 @@ const Mushroom2 = ({ model, scale, color, position, yRotate, data }) => {
       scale={[10, 10, 10]}
       position={position}
       onClick={() => {
-        setNewColor(randomColor());
-        // setNewColor2(randomColor());
+        setNewColor(randomColor({ luminosity: "light" }));
+        // setNewColor2(randomColor({luminosity: "light"}));
       }}
       rotation={[0, 0, 0]} //yRotate
     >
