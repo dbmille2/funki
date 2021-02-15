@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSphere } from "use-cannon";
 import { useThree, useFrame } from "react-three-fiber";
 
-const SPEED = 20;
+const SPEED = 15;
 const keys = {
   KeyW: "forward",
   KeyS: "backward",
@@ -41,7 +41,7 @@ const Wanderer = (props) => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: "Dynamic",
-    position: [250, 0, 500],
+    position: [200, 0, 434],
     ...props,
   }));
   const { forward, backward, left, right } = useWandererControls();

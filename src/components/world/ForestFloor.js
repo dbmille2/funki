@@ -6,13 +6,13 @@ import grass from "../../images/grass.jpeg";
 
 const ForestFloor = (props) => {
   const [ref] = usePlane(() => ({
-    position: [250, 0, 250],
+    position: [200, 0, 200],
     rotation: [-Math.PI / 2, 0, 0],
     ...props,
   }));
   const texture = useLoader(THREE.TextureLoader, grass);
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(500, 500);
+  texture.repeat.set(200, 200);
   return (
     <mesh ref={ref} receiveShadow>
       <planeBufferGeometry args={[500, 500]} />

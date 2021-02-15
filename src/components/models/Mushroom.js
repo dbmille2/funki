@@ -18,7 +18,9 @@ const Mushroom = ({
 }) => {
   const [newColor, setNewColor] = useState(color);
 
-  const [newColor2, setNewColor2] = useState(randomColor());
+  const [newColor2, setNewColor2] = useState(
+    randomColor({ luminosity: "light" })
+  );
   const [model, setModel] = useState();
   const mesh = useRef();
   const mesh2 = useRef();
@@ -40,11 +42,9 @@ const Mushroom = ({
 
   useEffect(() => {
     void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048));
-
+    sound.current.listener.setMasterVolume(0.2);
     // console.log(sound.current);
   }, []);
-
-  
 
   useFrame(() => {
     if (analyser.current && model) {
@@ -263,7 +263,7 @@ const Mushroom = ({
         <group
           scale={scale}
           position={position}
-          onClick={() => setNewColor(randomColor())}
+          onClick={() => setNewColor(randomColor({ luminosity: "light" }))}
           rotation={[0, yRotate, 0]}
         >
           <primitive object={model.scene} />
@@ -343,53 +343,55 @@ const Mushroom = ({
   } else {
     return model ? (
       <>
-        <mesh position={[250, 2, 498]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color1} />
-        </mesh>
-        <mesh position={[250, 2, 496.5]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color2} />
-        </mesh>
-        <mesh position={[250, 2, 495]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color3} />
-        </mesh>
-        <mesh position={[250, 2, 493.5]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color4} />
-        </mesh>
-        <mesh position={[250, 2, 492]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color5} />
-        </mesh>
-        <mesh position={[250, 2, 490.5]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color6} />
-        </mesh>
-        <mesh position={[250, 2, 489]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color7} />
-        </mesh>
-        <mesh position={[250, 2, 487.5]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color8} />
-        </mesh>
-        <mesh position={[250, 2, 486]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color9} />
-        </mesh>
-        <mesh position={[250, 2, 484.5]}>
-          <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
-          <meshBasicMaterial attach="material" color={color10} />
-        </mesh>
+        <group position={[200, 2, 430]}>
+          <mesh position={[0, 0, 0]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color1} />
+          </mesh>
+          <mesh position={[0, 0, -2]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color2} />
+          </mesh>
+          <mesh position={[0, 0, -4]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color3} />
+          </mesh>
+          <mesh position={[0, 0, -6]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color4} />
+          </mesh>
+          <mesh position={[0, 0, -8]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color5} />
+          </mesh>
+          <mesh position={[0, 0, -10]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color6} />
+          </mesh>
+          <mesh position={[0, 0, -12]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color7} />
+          </mesh>
+          <mesh position={[0, 0, -14]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color8} />
+          </mesh>
+          <mesh position={[0, 0, -16]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color9} />
+          </mesh>
+          <mesh position={[0, 0, -18]}>
+            <torusBufferGeometry attach="geometry" args={[2.4, 0.1, 50, 100]} />
+            <meshBasicMaterial attach="material" color={color10} />
+          </mesh>
+        </group>
         <group
           scale={scale}
           position={position}
           onClick={() => {
-            setNewColor(randomColor());
-            setNewColor2(randomColor());
-            // setNewColor2(randomColor());
+            setNewColor(randomColor({ luminosity: "light" }));
+            setNewColor2(randomColor({ luminosity: "light" }));
+            // setNewColor2(randomColor({luminosity: "light"}));
           }}
           rotation={[0, yRotate, 0]} //yRotate rotation * Math.PI
         >
@@ -457,7 +459,7 @@ const Mushroom = ({
         />
         <Balls
           ref={{ outerRef, middleRef, innerRef }}
-          count={3}
+          count={4}
           position={[0, 30, 0]}
         />
       </>
