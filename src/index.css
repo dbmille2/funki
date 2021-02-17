@@ -22,6 +22,11 @@ body,
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 body {
   position: fixed;
   overflow: hidden;
