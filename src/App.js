@@ -67,37 +67,43 @@ function App() {
       {!started && (
         <>
           <div className="main-container">
-            <label htmlFor={"song-input"} className="song-upload">
-              <BsPlusSquare className="song-upload-plus" />
-            </label>
-            <input id={"song-input"} type="file" onChange={updateSong}></input>
-            <div
-              className="start-button main-button"
-              onClick={() => setStarted(true)}
-            >
-              start
-            </div>
-            <div className="demo-button main-button" onClick={() => demo()}>
-              demo
-            </div>
+            <div className="song-selection">
+              <label htmlFor={"song-input"} className="song-upload">
+                <BsPlusSquare className="song-upload-plus" />
+              </label>
+              <input
+                id={"song-input"}
+                type="file"
+                onChange={updateSong}
+              ></input>
+              <div
+                className="start-button main-button"
+                onClick={() => setStarted(true)}
+              >
+                start
+              </div>
+              <div className="demo-button main-button" onClick={() => demo()}>
+                demo
+              </div>
 
-            <div className="select-a-song">select a song</div>
-            <div className="song-info">
-              <div className="song-title">{title}</div>
-              <div className="song-artist">{artist}</div>
+              <div className="select-a-song">select a song</div>
+              <div className="song-info">
+                <div className="song-title">{title}</div>
+                <div className="song-artist">{artist}</div>
+              </div>
             </div>
-          </div>
-          <div className="instructions-container">
-            <div className="instructions-header">instructions</div>
-            <div className="instructions-subheader">
-              once inside, click on crosshair to begin
+            <div className="instructions-container">
+              <div className="instructions-header">instructions</div>
+              <div className="instructions-subheader">
+                once inside, click on crosshair to begin
+              </div>
+              <ul className="controls">
+                <li>menu{"        |        "}esc</li>
+                <li>pause music{"        |        "}space</li>
+                <li>move{"        |        "}w a s d</li>
+                <li>look{"        |        "}mouse</li>
+              </ul>
             </div>
-            <ul className="controls">
-              <li>menu{"        |        "}esc</li>
-              <li>pause music{"        |        "}space</li>
-              <li>move{"        |        "}w a s d</li>
-              <li>look{"        |        "}mouse</li>
-            </ul>
           </div>
         </>
       )}
