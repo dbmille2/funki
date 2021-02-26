@@ -15,24 +15,7 @@ import {
 } from "react-icons/ai";
 import NavBar from "./components/NavBar";
 
-const positions1 = [];
-
-const set = new Set();
-
-for (let x = 0; x < 30; x++) {
-  let coords = [
-    Math.floor(Math.random() * 400),
-    -2,
-    Math.floor(Math.random() * 400),
-  ];
-
-  if (!set.has(coords)) {
-    positions1.push(coords);
-    set.add(coords);
-  }
-}
-
-function Forest({ song }) {
+function Forest({ song, positions1, speed }) {
   const [volume, setVolume] = useState(0.1);
   const pointerRef = useRef();
 
@@ -79,7 +62,7 @@ function Forest({ song }) {
         />
         <Physics gravity={[0, -30, 0]}>
           <ForestFloor />
-          <Wanderer />
+          <Wanderer speed={speed} />
         </Physics>
         {/* <OrbitControls /> */}
         <PointerLockControls domElement={document.body} ref={pointerRef} />

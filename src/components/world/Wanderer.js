@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSphere } from "use-cannon";
 import { useThree, useFrame } from "react-three-fiber";
 
-const SPEED = 15;
 const keys = {
   KeyW: "forward",
   KeyS: "backward",
@@ -37,12 +36,11 @@ const useWandererControls = () => {
   return movement;
 };
 
-const Wanderer = (props) => {
+const Wanderer = ({ speed }) => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: "Dynamic",
     position: [200, 0, 434],
-    ...props,
   }));
   const { forward, backward, left, right } = useWandererControls();
   const { camera } = useThree();
@@ -57,7 +55,7 @@ const Wanderer = (props) => {
     direction
       .subVectors(frontVector, sideVector)
       .normalize()
-      .multiplyScalar(SPEED)
+      .multiplyScalar(speed)
       .applyEuler(camera.rotation);
     api.velocity.set(direction.x, velocity.current[1], direction.z);
   });
