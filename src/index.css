@@ -47,10 +47,19 @@ body {
 
 .song-selection {
   width: 500px;
-  height: 400px;
+  height: 440px;
   position: relative;
   background-color: rgba(57, 57, 57, 0.5);
   border-radius: 8px;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: 0.5s;
+}
+
+.song-selection.open {
+  height: 655px;
+  transition-property: height;
+  transition-duration: 0.5s;
 }
 
 #song-input {
@@ -62,8 +71,8 @@ body {
   color: rgba(255, 255, 255, 0.8);
   position: absolute;
   left: 50%;
-  top: 5%;
-  transform: translate(-50%, -5%);
+  top: 15px;
+  transform: translateX(-50%);
 }
 
 .instructions-header {
@@ -107,8 +116,8 @@ body {
   color: rgba(255, 255, 255, 0.8);
   position: absolute;
   left: 50%;
-  top: 17%;
-  transform: translate(-50%, -17%);
+  top: 50px;
+  transform: translateX(-50%);
   cursor: pointer;
 }
 
@@ -121,8 +130,8 @@ body {
 
   max-width: 400px;
   left: 20%;
-  top: 45%;
-  transform: translate(-20%, -45%);
+  top: 150px;
+  transform: translateX(-20%);
 }
 
 .song-title {
@@ -150,14 +159,35 @@ body {
   color: white;
 }
 
+.sliders-button {
+  position: absolute;
+  left: 50%;
+  top: 395px;
+  font-size: 30px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.sliders-button:hover {
+  color: white;
+}
+
 .start-button {
   left: 17%;
-  bottom: 4%;
+  top: 335px;
 }
 
 .demo-button {
-  bottom: 4%;
-  right: 17%;
+  top: 335px;
+  right: 13.5%;
+}
+
+.sliders {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 438px;
 }
 
 .instructions-container {
@@ -269,4 +299,9 @@ body {
   font-size: 55px;
   letter-spacing: 4px;
   margin-left: 20px;
+}
+
+.mush-label {
+  font-size: 40px;
+  margin-right: 18px;
 }

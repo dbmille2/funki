@@ -8,6 +8,10 @@ import Particles from "./components/models/Particles";
 import MainEffects from "./components/effects/MainEffects";
 import NavBar from "./components/NavBar";
 import { BsPlusSquare } from "react-icons/bs";
+import { BiSlider } from "react-icons/bi";
+import { GiMushrooms } from "react-icons/gi";
+import { IoGridSharp } from "react-icons/io5";
+import { RiWalkFill } from "react-icons/ri";
 import * as THREE from "three";
 
 function App() {
@@ -15,6 +19,7 @@ function App() {
   const [song, setSong] = useState(null);
   const [artist, setArtist] = useState("");
   const [title, setTitle] = useState("");
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const updateSong = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -29,6 +34,8 @@ function App() {
   };
   const ref = useRef();
   const [mushrooms, setMushrooms] = useState([40]);
+  const [area, setArea] = useState([250]);
+  const [speed, setSpeed] = useState([15]);
 
   const demo = () => {
     setSong("/music/bloom.flac");
@@ -38,6 +45,29 @@ function App() {
       setStarted(true);
     }, 2000);
   };
+
+  const [positions, setPositions] = useState([]);
+  useEffect(() => {
+    const set = new Set();
+    const temp = [];
+    for (let x = 0; x < mushrooms[0]; x++) {
+      let coords = [
+        Math.floor(Math.random() * 400),
+        -2,
+        Math.floor(Math.random() * 400),
+      ];
+
+      if (!set.has(coords)) {
+        temp.push(coords);
+        set.add(coords);
+      }
+    }
+    setPositions(temp);
+  }, [mushrooms]);
+
+  useEffect(() => {
+    console.log(speed[0]);
+  }, [speed]);
 
   return (
     <>
@@ -67,7 +97,11 @@ function App() {
       {!started && (
         <>
           <div className="main-container">
-            <div className="song-selection">
+            <div
+              className={
+                !settingsOpen ? "song-selection" : "song-selection open"
+              }
+            >
               <label htmlFor={"song-input"} className="song-upload">
                 <BsPlusSquare className="song-upload-plus" />
               </label>
@@ -85,11 +119,239 @@ function App() {
               <div className="demo-button main-button" onClick={() => demo()}>
                 demo
               </div>
-
               <div className="select-a-song">select a song</div>
               <div className="song-info">
                 <div className="song-title">{title}</div>
                 <div className="song-artist">{artist}</div>
+              </div>
+
+              <BiSlider
+                className="sliders-button"
+                onClick={() => setSettingsOpen(!settingsOpen)}
+              />
+              <div className="sliders">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    width: "400px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <GiMushrooms className="mush-label" />
+                  <Range
+                    values={mushrooms}
+                    step={1}
+                    min={5}
+                    max={50}
+                    onChange={(value) => setMushrooms(value)}
+                    renderTrack={({ props, children }) => (
+                      <div
+                        onMouseDown={props.onMouseDown}
+                        onTouchStart={props.onTouchStart}
+                        style={{
+                          ...props.style,
+                          height: "36px",
+                          display: "flex",
+                          width: "85%",
+                        }}
+                      >
+                        <div
+                          ref={props.ref}
+                          style={{
+                            height: "5px",
+                            width: "100%",
+                            borderRadius: "4px",
+                            background: getTrackBackground({
+                              values: mushrooms,
+                              colors: ["#FFF", "#404040"],
+                              min: 5,
+                              max: 50,
+                            }),
+                            alignSelf: "center",
+                          }}
+                        >
+                          {children}
+                        </div>
+                      </div>
+                    )}
+                    renderThumb={({ props, isDragged }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: "21px",
+                          width: "21px",
+                          borderRadius: "4px",
+                          backgroundColor: "#DDD",
+                          display: "flex",
+                          outline: "none",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          boxShadow: "0px 2px 6px #AAA",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "16px",
+                            width: "5px",
+                            backgroundColor: !isDragged ? "#404040" : "#BBB",
+                          }}
+                        />
+                      </div>
+                    )}
+                  />
+                  <output id="mush-output">{mushrooms[0].toFixed()}</output>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    width: "400px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <IoGridSharp className="mush-label" />
+                  <Range
+                    values={area}
+                    step={25}
+                    min={100}
+                    max={500}
+                    onChange={(value) => setArea(value)}
+                    renderTrack={({ props, children }) => (
+                      <div
+                        onMouseDown={props.onMouseDown}
+                        onTouchStart={props.onTouchStart}
+                        style={{
+                          ...props.style,
+                          height: "36px",
+                          display: "flex",
+                          width: "85%",
+                        }}
+                      >
+                        <div
+                          ref={props.ref}
+                          style={{
+                            height: "5px",
+                            width: "100%",
+                            borderRadius: "4px",
+                            background: getTrackBackground({
+                              values: area,
+                              colors: ["#FFF", "#404040"],
+                              min: 100,
+                              max: 500,
+                            }),
+                            alignSelf: "center",
+                          }}
+                        >
+                          {children}
+                        </div>
+                      </div>
+                    )}
+                    renderThumb={({ props, isDragged }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: "21px",
+                          width: "21px",
+                          borderRadius: "4px",
+                          backgroundColor: "#DDD",
+                          display: "flex",
+                          outline: "none",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          boxShadow: "0px 2px 6px #AAA",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "16px",
+                            width: "5px",
+                            backgroundColor: !isDragged ? "#404040" : "#BBB",
+                          }}
+                        />
+                      </div>
+                    )}
+                  />
+                  <output id="area-output">{area[0].toFixed()}</output>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    width: "400px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <RiWalkFill className="mush-label" />
+                  <Range
+                    values={speed}
+                    step={1}
+                    min={5}
+                    max={50}
+                    onChange={(value) => setSpeed(value)}
+                    renderTrack={({ props, children }) => (
+                      <div
+                        onMouseDown={props.onMouseDown}
+                        onTouchStart={props.onTouchStart}
+                        style={{
+                          ...props.style,
+                          height: "36px",
+                          display: "flex",
+                          width: "85%",
+                        }}
+                      >
+                        <div
+                          ref={props.ref}
+                          style={{
+                            height: "5px",
+                            width: "100%",
+                            borderRadius: "4px",
+                            background: getTrackBackground({
+                              values: speed,
+                              colors: ["#FFF", "#404040"],
+                              min: 5,
+                              max: 50,
+                            }),
+                            alignSelf: "center",
+                          }}
+                        >
+                          {children}
+                        </div>
+                      </div>
+                    )}
+                    renderThumb={({ props, isDragged }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: "21px",
+                          width: "21px",
+                          borderRadius: "4px",
+                          backgroundColor: "#DDD",
+                          display: "flex",
+                          outline: "none",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          boxShadow: "0px 2px 6px #AAA",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "16px",
+                            width: "5px",
+                            backgroundColor: !isDragged ? "#404040" : "#BBB",
+                          }}
+                        />
+                      </div>
+                    )}
+                  />
+                  <output id="speed-output">{speed[0].toFixed()}</output>
+                </div>
               </div>
             </div>
             <div className="instructions-container">
@@ -109,7 +371,7 @@ function App() {
       )}
       {started && song && (
         <>
-          <Forest song={song} />
+          <Forest positions1={positions} speed={speed[0]} song={song} />
           <div className="crosshair" style={{ pointerEvents: "none" }}>
             <BsPlus />
           </div>
