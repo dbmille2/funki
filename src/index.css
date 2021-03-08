@@ -39,7 +39,6 @@ body {
 .main-container {
   font-family: "Montserrat", sans-serif;
   position: fixed;
-  height: 1000px;
   top: 200px;
   left: 50%;
   transform: translateX(-50%);
@@ -47,7 +46,7 @@ body {
 
 .song-selection {
   width: 500px;
-  height: 440px;
+  height: 340px;
   position: relative;
   background-color: rgba(57, 57, 57, 0.5);
   border-radius: 8px;
@@ -57,7 +56,7 @@ body {
 }
 
 .song-selection.open {
-  height: 655px;
+  height: 555px;
   transition-property: height;
   transition-duration: 0.5s;
 }
@@ -130,7 +129,7 @@ body {
 
   max-width: 400px;
   left: 20%;
-  top: 150px;
+  top: 125px;
   transform: translateX(-20%);
 }
 
@@ -162,7 +161,7 @@ body {
 .sliders-button {
   position: absolute;
   left: 50%;
-  top: 395px;
+  top: 295px;
   font-size: 30px;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.8);
@@ -175,11 +174,11 @@ body {
 
 .start-button {
   left: 17%;
-  top: 335px;
+  top: 235px;
 }
 
 .demo-button {
-  top: 335px;
+  top: 235px;
   right: 13.5%;
 }
 
@@ -187,7 +186,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 438px;
+  top: 338px;
 }
 
 .instructions-container {
