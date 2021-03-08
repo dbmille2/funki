@@ -40,9 +40,9 @@ body {
   font-family: "Montserrat", sans-serif;
   position: fixed;
   height: 1000px;
-  top: 45%;
+  top: 200px;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translateX(-50%);
 }
 
 .song-selection {

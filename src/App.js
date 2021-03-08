@@ -33,9 +33,9 @@ function App() {
     }
   };
   const ref = useRef();
-  const [mushrooms, setMushrooms] = useState([40]);
+  const [mushrooms, setMushrooms] = useState([20]);
   const [area, setArea] = useState([250]);
-  const [speed, setSpeed] = useState([15]);
+  const [speed, setSpeed] = useState([25]);
 
   const demo = () => {
     setSong("/music/bloom.flac");
