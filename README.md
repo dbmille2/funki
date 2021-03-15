@@ -59,7 +59,7 @@
 
 [![User Feed][product-screenshot]](http://funkiforest.herokuapp.com/)
 
-Funki is an music visualizier app that generates an interactive forest that the user can walk through using first-person controls. Towering mushroom trees will react to lower frequencies, while floating particles react to higher frequencies.
+funki is a music visualizer app that generates an interactive forest that the user can walk through using first-person controls. Towering mushroom trees will react to lower frequencies, while floating particles react to higher frequencies.
 
 <br><br>
 [![Walking Through Forest][experience-screenshot]](http://funkiforest.herokuapp.com/)
