@@ -124,7 +124,7 @@ See the [open issues](https://github.com/dbmille2/funki/issues) for a list of pr
 <!-- CONTACT -->
 ## Contact
 
-Daniel Miller - [EMAIL](dbmiller25@gmail.com)
+Daniel Miller - [EMAIL](mailto:dbmiller25@gmail.com)
 
 Project Link: [https://github.com/dbmille2/funki](https://github.com/dbmille2/funki)
 
