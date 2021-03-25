@@ -114,14 +114,14 @@ _For more examples, please refer to the [Documentation](https://github.com/dbmil
 
 
 
-<!-- ROADMAP -->
+
 ## Roadmap
 
 See the [open issues](https://github.com/dbmille2/funki/issues) for a list of proposed features (and known issues).
 
 
 
-<!-- CONTACT -->
+
 ## Contact
 
 Daniel Miller - [EMAIL](mailto:dbmiller25@gmail.com)
@@ -132,7 +132,7 @@ Project Link: [https://github.com/dbmille2/funki](https://github.com/dbmille2/fu
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
+
 [stars-shield]: https://img.shields.io/github/stars/dbmille2/funki.svg?style=for-the-badge
 [stars-url]: https://github.com/dbmille2/funki/stargazers
 [issues-shield]: https://img.shields.io/github/issues/dbmille2/funki.svg?style=for-the-badge
