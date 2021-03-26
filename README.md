@@ -4,7 +4,6 @@
 
 
 
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/dbmille2/funki">
@@ -29,7 +28,6 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
@@ -54,7 +52,6 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![User Feed][product-screenshot]](http://funkiforest.herokuapp.com/)
@@ -75,8 +72,6 @@ funki is a music visualizer app that generates an interactive forest that the us
 * [Web Audio Api](https://www.w3.org/TR/webaudio/)
 
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
@@ -107,7 +102,6 @@ To get a local copy up and running follow these simple steps.
   ```
 
 
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 _For more examples, please refer to the [Documentation](https://github.com/dbmille2/funki)_
