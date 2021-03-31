@@ -114,8 +114,6 @@ _For more examples, please refer to the [Documentation](https://github.com/dbmil
 See the [open issues](https://github.com/dbmille2/funki/issues) for a list of proposed features (and known issues).
 
 
-
-
 ## Contact
 
 Daniel Miller - [EMAIL](mailto:dbmiller25@gmail.com)
