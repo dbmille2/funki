@@ -121,10 +121,6 @@ Daniel Miller - [EMAIL](mailto:dbmiller25@gmail.com)
 Project Link: [https://github.com/dbmille2/funki](https://github.com/dbmille2/funki)
 
 
-
-
-
-
 [stars-shield]: https://img.shields.io/github/stars/dbmille2/funki.svg?style=for-the-badge
 [stars-url]: https://github.com/dbmille2/funki/stargazers
 [issues-shield]: https://img.shields.io/github/issues/dbmille2/funki.svg?style=for-the-badge
