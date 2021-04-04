@@ -1,14 +1,12 @@
 import { useRef, Suspense, useState, useEffect } from "react";
 import { PositionalAudio } from "@react-three/drei";
 import Mushroom from "../models/Mushroom";
-import { useFrame } from "react-three-fiber";
 const randomColor = require("randomcolor");
 
 const AudioStarter = ({ volume, song, positions1 }) => {
   const sound = useRef();
 
   const pauseMenu = (e) => {
-    // console.log(sound.current.isPlaying);
     if (e.key === " " && sound.current.isPlaying) {
       sound.current.pause();
       return;
