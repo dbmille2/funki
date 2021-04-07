@@ -8,7 +8,6 @@ import Balls from "../models/Balls";
 const randomColor = require("randomcolor");
 
 const Mushroom = ({
-  volume,
   sound,
   scale,
   color,
@@ -30,7 +29,6 @@ const Mushroom = ({
   const mesh6 = useRef();
   const mesh7 = useRef();
   const mesh8 = useRef();
-  // const mesh9 = useRef();
   const outerRef = useRef();
   const middleRef = useRef();
   const innerRef = useRef();
@@ -43,7 +41,6 @@ const Mushroom = ({
   useEffect(() => {
     void (analyser.current = new THREE.AudioAnalyser(sound.current, 2048));
     sound.current.listener.setMasterVolume(0.2);
-    // console.log(sound.current);
   }, []);
 
   useFrame(() => {
@@ -74,22 +71,8 @@ const Mushroom = ({
         particleRef.current.data = upperAvgFr;
         particleRef2.current.data = upperAvgFr;
         particleRef3.current.data = upperAvgFr;
-
-        // mesh7.current.scale.x = mesh7.current.scale.y = mesh7.current.scale.z =
-        //   lowerAvgFr / 12 + 1;
-        // mesh8.current.scale.x = mesh8.current.scale.y = mesh8.current.scale.z =
-        //   lower2AvgFr / 2 + 0.5;
-        // mesh9.current.scale.x = mesh9.current.scale.y = mesh9.current.scale.z =
-        //   upperAvgFr * 10 + 1.5;
-        // mesh7.current.rotation.y = mesh7.current.rotation.y + 0.003;
-        // mesh7.current.rotation.z = mesh7.current.rotation.z + 0.003;
-        // mesh8.current.rotation.y = mesh8.current.rotation.y - 0.003;
-        // mesh8.current.rotation.z = mesh8.current.rotation.z - 0.003;
-        // mesh9.current.rotation.y = mesh9.current.rotation.y + 0.003;
-        // mesh9.current.rotation.x = mesh9.current.rotation.x + 0.003;
       } else {
         setRotation(lowerAvgFr / 30);
-        // console.log(lowerAvgFr / 30);
         particleRef.current.data = upperAvgFr;
         particleRef2.current.data = upperAvgFr;
         particleRef3.current.data = upperAvgFr;
@@ -103,18 +86,6 @@ const Mushroom = ({
           lowerAvgFr / 20 + 0.4;
         mesh7.current.rotation.y += 0.0025;
         mesh8.current.rotation.y -= 0.005;
-        // mesh7.current.scale.x = mesh7.current.scale.y = mesh7.current.scale.z =
-        //   lowerAvgFr / 8 + 1;
-        // mesh8.current.scale.x = mesh8.current.scale.y = mesh8.current.scale.z =
-        //   lower2AvgFr / 1.5;
-        // mesh9.current.scale.x = mesh9.current.scale.y = mesh9.current.scale.z =
-        //   upperAvgFr * 10 + 1.5;
-        // mesh7.current.rotation.y = mesh7.current.rotation.y + 0.003;
-        // mesh7.current.rotation.z = mesh7.current.rotation.z + 0.003;
-        // mesh8.current.rotation.y = mesh8.current.rotation.y - 0.003;
-        // mesh8.current.rotation.z = mesh8.current.rotation.z - 0.003;
-        // mesh9.current.rotation.y = mesh9.current.rotation.y + 0.003;
-        // mesh9.current.rotation.x = mesh9.current.rotation.x + 0.003;
       }
     }
   });
@@ -392,9 +363,8 @@ const Mushroom = ({
           onClick={() => {
             setNewColor(randomColor({ luminosity: "light" }));
             setNewColor2(randomColor({ luminosity: "light" }));
-            // setNewColor2(randomColor({luminosity: "light"}));
           }}
-          rotation={[0, yRotate, 0]} //yRotate rotation * Math.PI
+          rotation={[0, yRotate, 0]}
         >
           <primitive object={model.scene} />
           <mesh
