@@ -33,8 +33,13 @@ const NavBar = () => {
         >
           <AiOutlineLinkedin className="linkedin-button" />
         </a>
-
-        <AiOutlineInfoCircle className="info-button" />
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://dbmiller.io"
+        >
+          <AiOutlineInfoCircle className="info-button" />
+        </a>
       </div>
     </div>
   );
