@@ -7,12 +7,6 @@ import Wanderer from "./components/world/Wanderer";
 import AudioStarter from "./components/audio/AudioStarter.js";
 import MainEffects from "./components/effects/MainEffects";
 import { useRef, useEffect, useState } from "react";
-import { GiMushroomGills } from "react-icons/gi";
-import {
-  AiOutlineGithub,
-  AiOutlineLinkedin,
-  AiOutlineInfoCircle,
-} from "react-icons/ai";
 import NavBar from "./components/NavBar";
 
 function Forest({ song, positions1, speed }) {
