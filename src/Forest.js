@@ -58,7 +58,8 @@ function Forest({ song, positions1, speed }) {
           <ForestFloor />
           <Wanderer speed={speed} />
         </Physics>
-        {/* <OrbitControls /> */}
+        
+        {/* <OrbitControls /> for future use*/}
         <PointerLockControls domElement={document.body} ref={pointerRef} />
       </Canvas>
     </>
